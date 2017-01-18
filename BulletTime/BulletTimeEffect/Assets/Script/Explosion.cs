@@ -9,6 +9,8 @@ public class Explosion : MonoBehaviour {
     [SerializeField]
     Vector3 explodePosition;
 
+    public TimeManager timeManager;
+
     public float radius = 50.0f;
     public float power = 10000.0f;
 	// Use this for initialization
@@ -28,6 +30,7 @@ public class Explosion : MonoBehaviour {
         Collider[] colliders = Physics.OverlapSphere(explodePosition, radius);
 
         Instantiate(explosionParticle, explodePosition, transform.rotation);
+        //timeManager.DoSlowMotion();
         foreach (Collider hit in colliders) {
             Rigidbody rb = hit.GetComponent<Rigidbody>();
             if (rb != null)
