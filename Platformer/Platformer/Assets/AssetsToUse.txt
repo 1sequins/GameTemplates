@@ -1,0 +1,11 @@
+2D platformer art pack
+https://www.assetstore.unity3d.com/en/#!/content/24090
+
+Tower 2D
+https://www.assetstore.unity3d.com/en/#!/content/71771
+
+GhostSprites: Ghost effect
+https://www.assetstore.unity3d.com/en/#!/content/40357
+
+2D archer
+https://www.assetstore.unity3d.com/en/#!/content/18748
