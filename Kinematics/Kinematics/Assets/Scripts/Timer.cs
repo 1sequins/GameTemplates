@@ -8,8 +8,11 @@ public class Timer : MonoBehaviour {
     public MoveBody objectA;
     public MoveBody objectB;
 
-	// Use this for initialization
-	void Start () {
+    public float timeStep;
+
+    // Use this for initialization
+    void Awake () {
+        Time.fixedDeltaTime = timeStep;
         float h = objectA.transform.position.x - objectB.transform.position.x;
 
         float a = objectB.acceleration - objectA.acceleration;
@@ -17,7 +20,7 @@ public class Timer : MonoBehaviour {
         float c = -2 * h;
 
         predictedTime = (-b + Mathf.Sqrt(b * b - 4 * a * c)) / ( 2 * a );
-        //print("a="+a+" b="+b+" c="+c);
+        
         print(predictedTime);
 	}
 	

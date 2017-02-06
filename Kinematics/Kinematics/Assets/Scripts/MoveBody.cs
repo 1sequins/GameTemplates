@@ -7,8 +7,8 @@ public class MoveBody : MonoBehaviour {
     [Header("Movement")]
 
     public float initialVelocity, acceleration;
-
     float time;
+
     float currentVelocity;
 
     Rigidbody2D rb;
@@ -33,4 +33,19 @@ public class MoveBody : MonoBehaviour {
             rb.velocity = Vector2.zero;
         }
 	}
+
+    public float getInitialVelocity()
+    {
+        return initialVelocity;
+    }
+
+    public float getAcceleration()
+    {
+        return acceleration;
+    }
+
+    public float getCurrentVelocity()
+    {
+        return currentVelocity;
+    }
 }

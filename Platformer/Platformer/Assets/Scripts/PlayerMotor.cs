@@ -6,8 +6,11 @@ public class PlayerMotor : MonoBehaviour {
 
     Rigidbody2D rb;
     float velocity;
+    [SerializeField]
     bool isGrounded;
 
+    [SerializeField]
+    LayerMask layers;
     // Use this for initialization
     void Start () {
         // There will always be a Rigidbody2D
@@ -18,6 +21,16 @@ public class PlayerMotor : MonoBehaviour {
 	void FixedUpdate () {
         //rb.MovePosition(rb.position + velocity*Time.fixedDeltaTime);
         rb.velocity = new Vector2(velocity, rb.velocity.y);
+
+        RaycastHit2D hit = Physics2D.Raycast(transform.position, -Vector2.up, 500, layers);
+        if(hit.distance <0.5f)
+        {
+            //print("We hit: "+hit.collider.gameObject.name+" distance: "+hit.distance);
+            isGrounded = true;
+        } else
+        {
+            isGrounded = false;
+        }
 	}
 
     public void MoveBody(float _velocity)
@@ -29,11 +42,11 @@ public class PlayerMotor : MonoBehaviour {
     {
         if (isGrounded)
         {
-            Debug.Log("jumping: " + jumpForce);
             rb.AddForce(new Vector2(0f, jumpForce));
         }
     }
 
+    /*
     void OnCollisionEnter2D(Collision2D coll)
     {
         if(coll.gameObject.tag=="floor")
@@ -49,4 +62,5 @@ public class PlayerMotor : MonoBehaviour {
             isGrounded = false;
         }
     }
+    */
 }
